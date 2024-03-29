@@ -36,3 +36,14 @@ Se desea informatizar la gestión de una empresa de transportes que reparte paqu
 
 ![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/3e14f6a9-0716-45fc-b899-f8a65bfadc1b)
 
+## **Ejercicio 4**
+Se necesita realizar la base de datos de una organización que lleve el control de niños refugiados en distintas instituciones a nivel mundial, por ejemplo, como la base de datos de UNICEF.
+La organización necesita tener la información de los niños con sus datos personales, filiatorios (nombre y apellido de los padres), fecha y lugar de nacimiento, parientes, datos sanitarios (enfermedades actuales y pasadas), etc. 
+También se desea conocer en qué institución está cada niño, adicionalmente se conoce el país, región y ciudad de la institución.
+Se necesita saber si los niños requieren cuidados especiales y quiénes son sus contactos o cuidadores dentro de la institución en la que están.
+Por último, se necesita saber la fecha en la que volvió con la familia (si es que lo hizo).
+
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/275bea3d-347c-4ed5-83d2-ea1125e719f8)
+
+
+
