@@ -27,7 +27,7 @@ Diagrama entidad de relación:<br>
 Cree las tablas correspondientes a los DEREs de los ejercicios 2 y 3 del Práctico 02. Asuma los tipos de datos más convenientes.
 
 ```
-[TP03 Ejericio2a create](/TP03-Ejericio2a_create.sql)
+[TP03 Ejericio2a create](creacionDeEsquema/TP03-Ejericio2a_create.sql)
 ```
 
 
