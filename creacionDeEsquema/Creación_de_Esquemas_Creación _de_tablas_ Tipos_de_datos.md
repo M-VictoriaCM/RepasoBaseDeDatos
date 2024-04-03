@@ -24,10 +24,16 @@ Diagrama entidad de relación:<br>
 <img src="https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/46fa5481-b18f-4283-ad61-160b61c458cb" alt="500" width="700"/>
 
 # Ejercicio 2
-Cree las tablas correspondientes a los DEREs de los ejercicios 2 y 3 del Práctico 02. Asuma los tipos de datos más convenientes.
-
-```
+Cree las tablas correspondientes a los DEREs de los ejercicios 2 y 3 del Práctico 02. Asuma los tipos de datos más convenientes.<br>
 [TP03 Ejericio2a create](creacionDeEsquema/TP03-Ejericio2a_create.sql)
-```
+
+[TP03 Ejericio2a insert](creacionDeEsquema/TP03-Ejericio2a_insert.sql)
+
+[TP03 Ejericio2b create](creacionDeEsquema/TP03-Ejericio2b_create.sql)
+
+# Ejercicio 3:
+Genere un script con los insert correspondientes para cargar 10 registros para cada tabla del Diagrama 1 del Ejercicio 1.<br>
+[TP03 Ejericio3 create](creacionDeEsquema/TP03-Ejericio3_create.sql)
+[TP03 Ejericio3 insert](creacionDeEsquema/TP03-Ejericio3_insert.sql)
 
 
