@@ -141,5 +141,94 @@ WHERE nombre LIKE  '_M%n';
 
 ## EJERCICIO 3:
 1. Cuales son los voluntarios nacidos antes de la década del '90
+```
+SELECT nro_voluntario, apellido, fecha_nacimiento
+FROM voluntario
+WHERE extract(year from fecha_nacimiento) < 1990;
+```
+**SALIDA: <br>
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/00855c69-f8cf-4e3c-be41-0f5cecea4609)
+
 2. Cuales son los voluntario con nombre Juan?
+```
+SELECT *
+FROM voluntario
+WHERE nombre ILIKE 'juan'
+```
+**SALIDA: <br>
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/79414a1f-5428-45f7-a361-6b51ddbd340d)
+
 3. Cuales son los voluntario con apellido Ruiz?
+```
+SELECT *
+FROM voluntario
+WHERE apellido ILIKE 'ruiz';
+```
+**SALIDA:
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/ed62d9cc-0ecb-4f9b-8412-7ed7131c7a4f)
+
+# OPERADOR ID [NOT] NULL
+
+***EJEMPLO: Listar los datos completos de los voluntarios que no tengan coordinador***
+```
+SELECT * 
+FROM voluntario
+WHERE id_coordinador IS NULL;
+```
+**SALIDA: <br>
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/c168fff1-920f-44a8-9c10-3d44c6161768)
+
+***EJEMEPLO: Listar los datos de los voluntarios cuyo porcentaje sea menor o igual que el 50%***
+```
+SELECT *
+FROM voluntario
+WHERE  porcentaje <= 50.00
+OR porcentaje IS NULL;
+```
+**SALIDA: <br>
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/263be52a-ae68-4546-9b85-bdc36db07f96)
+
+# CONDICIONES DE COMPARACIÓN COMPUESTA
+***EJEMPLO: Seleccionar los voluntarios que son coordinados por los voluntarios nro 100 o 124 y están trabajando para la institucion cuyo código es 50
+```
+SELECT nro_voluntario,
+       apellido,
+       id_institucion,
+       id_coordinador
+FROM voluntario
+WHERE (id_coordinador =100
+OR id_coordinador= 124)
+AND id_institucion= 50;
+```
+
+# ORDEN DE PRESENTACIÓN DE LOS REGISTROS
+***EJEMPLO: Listar los apellidos ordenados descendentemente y nombre de los voluntarios que son coordinados por el volunrario 124***
+```
+SELECT apellido, nombre
+FROM voluntario
+WHERE id_coordinador = 14
+ORDER BY  apellido DESC, nombre;
+```
+**SALIDA:<br>
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/0231d3da-2b37-48bc-83c4-6e2f6714afc9)
+```
+```
+***EJEMPLO: Seleccionar los datos de los voluntarios que corresponden a los 10 primeros voluntarios***
+```
+SELECT *
+FROM voluntario
+ORDER BY nro_voluntario
+LIMIT 10;
+```
+***EJEMPLO: Seleccionar los datos de los voluntarios a partir del 15to voluntario***
+```
+SELECT *
+FROM voluntario
+ORDER BY nro_voluntario
+LIMIT ALL
+OFFSET 15;
+```
+
+## EJERCICIO 5:
+1. ¿Cuales son los 10 voluntarios mayores?
+2. En orden alfabético quienes son los 5 primeros voluntarios de la institucion 80?
