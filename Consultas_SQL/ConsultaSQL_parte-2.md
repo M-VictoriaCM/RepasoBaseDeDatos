@@ -97,6 +97,87 @@ WHERE horas_aportadas >(
 ```
 ![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/dcdc5455-b6e9-40f2-a4ff-71caf4c8afdd)
 
-📍*** ***
+📍***Liste el apellido y nombre de los empleados que trabajan en departamentos de Argentina***
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/5d121dcf-ba17-47d3-bdc3-5730d0d21968)
+
 ```
+SELECT e.nombre, e.apellido
+FROM empleado e
+where (e.id_departamento, e.id_distribuidor) IN (
+    SELECT d.id_departamento, d.id_distribuidor
+    FROM departamento d
+    WHERE d.id_ciudad IN (
+        SELECT c.id_ciudad
+        FROM ciudad c
+        WHERE c.id_pais IN (
+            SELECT p.id_pais
+            FROM pais p
+            WHERE nombre_ciudad = 'Argentina'
+            )
+        )
+    );
 ```
+
+# USO DEL OPERADOR EXISTS
+
+```
+SELECT e.nombre, e.apellido
+FROM empleado e
+WHERE EXISTS(
+    SELECT 'X'
+    FROM departamento d
+    WHERE  e.id_departamento = d.id_departamento
+    AND e.id_distribuidor = d.id_distribuidor
+    AND EXISTS(
+        SELECT 'Y'
+        FROM ciudad c
+        WHERE d.id_ciudad = c.id_ciudad
+        AND EXISTS(
+            SELECT 'Z'
+            FROM pais p
+            WHERE c.id_pais = p.id_pais
+            AND nombre_pais = 'Argentina'
+        )
+    )
+);
+```
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/5f91e611-4786-4d8b-b6d9-35f6df8b434f)
+
+# EMSABLE JOIN
+
+## LEFT JOIN
+📍***Supongamos que queremos consultar todas las tareas que realizan los voluntarios de alguna institución y también las tareas que no realiza nadie ***
+```
+SELECT nombre_tarea, apellido, nombre
+FROM tarea t
+LEFT JOIN voluntario v
+ON(t.id_tarea = v.id_tarea)
+JOIN institucion i 
+ON (i.id_institucion = v.id_institucion);
+```
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/08b8730d-bf3b-4e16-9914-606123ff344b)
+
+## RIGHT JOIN
+
+```
+SELECT nombre_tarea, apellido, nombre
+FROM voluntario v
+JOIN institucion i
+ON (i.id_institucion = v.id_institucion)
+RIGHT JOIN tarea t
+ON (t.id_tarea = v.id_tarea);
+```
+![image](https://github.com/M-VictoriaCM/RepasoBaseDeDatos/assets/70769530/c55056f0-65cd-491b-b2b0-00aac84446ef)
+
+## FULL JOIN
+```
+SELECT apellido, nombre, t.id_tarea, i.id_institucion
+FROM tarea t
+FULL JOIN voluntario v
+ON (t.id_tarea = v.id_tarea)
+FULL JOIN institucion i
+ON (i.id_institucion = v.id_institucion); 
+```
+
+
+
